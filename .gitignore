@@ -1,0 +1,6 @@
+.vscode
+labs.py
+backend/src/database.db
+venv
+__pycache__
+__pycache__/*
