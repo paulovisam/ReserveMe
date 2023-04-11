@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>PIM-V</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+</head>
+
+<body style="background: var(--bs-gray-900);">
+    <div style="height: 70px;background: var(--bs-purple);">
+        <h1 style="color: rgb(255,255,255);text-align: center;padding: 10px;">Controle</h1>
+    </div>
+    <div style="background: var(--bs-gray-900);">
+        <div class="d-flex justify-content-between mx-auto w-50" style="height: 200px;margin: 60px;">
+            <div>
+                <div class="align-items-center" style="height: 70px;margin: 10px;"><span style="color: rgb(255,255,255);">Equipamento</span><input type="text" id="name" class="align-items-center" style="margin-left: 8px;color: rgb(255,255,255);background: rgb(33,37,41);border-color: rgb(255,255,255);border-radius: 6px;"></div>
+                <div class="align-items-center" style="height: 70px;margin: 10px;"><span style="color: rgb(255,255,255);">Descrição</span><input type="text" id="description" class="align-items-center" style="margin-left: 34px;color: rgb(255,255,255);background: rgb(33,37,41);border-color: rgb(255,255,255);border-radius: 6px;"></div>
+                <div><button class="btn btn-primary" id="save" type="button" style="color: rgb(255,255,255);background: var(--bs-indigo);border-style: none;">Salvar</button></div>
+            </div>
+            <div>
+                <div class="align-items-center" style="height: 70px;margin: 10px;"><span style="color: rgb(255,255,255);">Quantidade</span><input type="text" id="amount" class="align-items-center" style="margin-left: 20px;color: rgb(255,255,255);background: rgb(33,37,41);border-radius: 6px;border-color: rgb(255,255,255);"></div>
+                <div class="align-items-center" style="height: 70px;margin: 10px;"><span style="color: rgb(255,255,255);">Status</span><select style="color: rgb(255,255,255);background: rgb(33,37,41);border-radius: 6px;border-width: 2px;margin-left: 64px;">
+                        <option value="0" selected="">Disponível</option>
+                        <option value="1">Ocupado</option>
+                        <option value="-1">Manutenção</option>
+                    </select></div>
+            </div>
+        </div>
+        <div class="mx-auto w-50" style="height: 35px;margin: 60px;">
+            <div class="table-responsive">
+                <table class="table" id="hardware-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 102.438px;text-align: center;color: rgb(254,255,255);">ID</th>
+                            <th style="text-align: center;color: rgb(254,255,255);">Nome</th>
+                            <th style="width: 114.062px;text-align: center;color: rgb(255,255,255);">Quantidade</th>
+                            <th style="width: 110.337px;text-align: center;color: rgb(254,254,254);">Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- <tr>
+                            <td style="color: rgb(255,255,255);text-align: center;">Cell 1</td>
+                            <td style="color: rgb(255,255,255);text-align: center;">Cell 2</td>
+                            <td style="color: rgb(255,255,255);text-align: center;">Text</td>
+                            <td style="color: rgb(255,255,255);text-align: center;">
+                                <div style="color: rgb(255,255,255);"><button id="edit" class="btn btn-secondary btn-sm" type="button" style="margin: 5px;padding: 5px 6px;"><i class="far fa-edit" style="font-size: 24px;color: rgb(255,255,255);" href="#"></i></button><button id="trash" class="btn btn-danger btn-sm"><i class="far fa-trash-alt" style="font-size: 23px;margin-left: 0;color: rgb(255,255,255);padding: 2px;"></i></button></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="color: rgb(255,255,255);text-align: center;">Cell 1</td>
+                            <td style="color: rgb(255,255,255);text-align: center;">Cell 2</td>
+                            <td style="color: rgb(255,255,255);text-align: center;">Text</td>
+                            <td style="color: rgb(255,255,255);text-align: center;">
+                                <div style="color: rgb(255,255,255);"><button id="edit" class="btn btn-secondary btn-sm" type="button" style="margin: 5px;padding: 5px 6px;"><i class="far fa-edit" style="font-size: 24px;color: rgb(255,255,255);" href="#"></i></button><button id="trash" class="btn btn-danger btn-sm"><i class="far fa-trash-alt" style="font-size: 23px;margin-left: 0;color: rgb(255,255,255);padding: 2px;"></i></button></div>
+                            </td>
+                        </tr> -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script defer src="js/create.js"></script>
+    <script src="js/delete.js"></script>
+    <script src="js/read.js"></script>
+</body>
+
+</html>
