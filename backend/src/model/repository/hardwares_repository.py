@@ -44,7 +44,7 @@ class HardwareRepository:
                 )
                 db.session.add(data_insert)
                 db.session.commit()
-                # return data_insert
+                return db.session.query(Hardware).filter_by(id=data_insert.id).one()
             except NoResultFound:
                 return None
             except Exception as error:
