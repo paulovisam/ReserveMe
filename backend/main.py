@@ -17,18 +17,21 @@ app = FastAPI()
 
 origins = [
     "http://localhost",
-    "https://localhost:8080",
     "http://localhost:8080",
+    "http://127.0.0.1",
+    "http://127.0.0.1:8080",
+    "https://localhost",
+    "https://localhost:8080",
+    "https://127.0.0.1",
+    "https://127.0.0.1:8080",
 ]
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-# app.add_middleware(HTTPSRedirectMiddleware)
-# app.add_middleware(BaseHTTPMiddleware, dispatch=timer_res)
 
 # Routers
 prefix = '/api/v1'
@@ -42,4 +45,4 @@ def test_feature(res_code: Response = None):
     return {'status': True}
 
 if __name__ == '__main__':
-    uvicorn.run("main:app", port=8000, host='127.0.0.1', reload=True)
+    uvicorn.run("main:app", port=8000, host='127.0.0.1', reload=True, ssl_keyfile=None, ssl_certfile=None)
