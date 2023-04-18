@@ -13,7 +13,9 @@
     <div style="height: 70px;background: var(--bs-purple);">
         <h1 style="color: rgb(255,255,255);text-align: center;padding: 10px;">Controle</h1>
     </div>
-    <div style="background: var(--bs-gray-900);">
+    <div><button class="btn btn-primary" id="changeThemeButton" type="button" style="color: rgb(255,255,255);background: var(--bs-indigo);border-style: none;">Mudar Tema</button></div>
+
+    <div id="container-params" style="background: var(--bs-gray-900);">
         <div class="d-flex justify-content-between mx-auto w-50" style="height: 200px;margin: 60px;">
             <div>
                 <div class="align-items-center" style="height: 70px;margin: 10px;"><span style="color: rgb(255,255,255);">Equipamento</span><input type="text" id="name" class="align-items-center" style="margin-left: 8px;color: rgb(255,255,255);background: rgb(33,37,41);border-color: rgb(255,255,255);border-radius: 6px;"></div>
@@ -36,36 +38,80 @@
                         <tr>
                             <th style="width: 102.438px;text-align: center;color: rgb(254,255,255);">ID</th>
                             <th style="text-align: center;color: rgb(254,255,255);">Nome</th>
+                            <th style="text-align: center;color: rgb(254,255,255);">Descrição</th>
                             <th style="width: 114.062px;text-align: center;color: rgb(255,255,255);">Quantidade</th>
+                            <th style="width: 114.062px;text-align: center;color: rgb(255,255,255);">Status</th>
                             <th style="width: 110.337px;text-align: center;color: rgb(254,254,254);">Ação</th>
                         </tr>
                     </thead>
                     <tbody>
                         <!-- <tr>
-                            <td style="color: rgb(255,255,255);text-align: center;">Cell 1</td>
-                            <td style="color: rgb(255,255,255);text-align: center;">Cell 2</td>
-                            <td style="color: rgb(255,255,255);text-align: center;">Text</td>
+                            <td style="color: rgb(255,255,255);text-align: center;">11</td>
+                            <td style="color: rgb(255,255,255);text-align: center;">Teste</td>
+                            <td style="color: rgb(255,255,255);text-align: center;">Descrição Teste</td>
+                            <td style="color: rgb(255,255,255);text-align: center;">3</td>
+                            <td style="color: rgb(255,255,255);text-align: center;">Ocupado</td>
                             <td style="color: rgb(255,255,255);text-align: center;">
-                                <div style="color: rgb(255,255,255);"><button id="edit" class="btn btn-secondary btn-sm" type="button" style="margin: 5px;padding: 5px 6px;"><i class="far fa-edit" style="font-size: 24px;color: rgb(255,255,255);" href="#"></i></button><button id="trash" class="btn btn-danger btn-sm"><i class="far fa-trash-alt" style="font-size: 23px;margin-left: 0;color: rgb(255,255,255);padding: 2px;"></i></button></div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="color: rgb(255,255,255);text-align: center;">Cell 1</td>
-                            <td style="color: rgb(255,255,255);text-align: center;">Cell 2</td>
-                            <td style="color: rgb(255,255,255);text-align: center;">Text</td>
-                            <td style="color: rgb(255,255,255);text-align: center;">
-                                <div style="color: rgb(255,255,255);"><button id="edit" class="btn btn-secondary btn-sm" type="button" style="margin: 5px;padding: 5px 6px;"><i class="far fa-edit" style="font-size: 24px;color: rgb(255,255,255);" href="#"></i></button><button id="trash" class="btn btn-danger btn-sm"><i class="far fa-trash-alt" style="font-size: 23px;margin-left: 0;color: rgb(255,255,255);padding: 2px;"></i></button></div>
-                            </td>
+                                <div style="color: rgb(255,255,255);">
+                                    <button id="edit" data-id="1" class="btn btn-secondary btn-sm" type="button" style="margin-right: 0;padding: 4px;">
+                                        <i class="far fa-edit" style="font-size: 15px;color: rgb(255,255,255);" href="#"></i>
+                                    </button>
+                                    <button id="trash" class="btn btn-danger btn-sm">
+                                        <i class="far fa-trash-alt" style="font-size: 15px;margin-left: 0;color: rgb(255,255,255);padding: 1px;"></i>
+                                    </button>
+                                </div>
+                            </td>                        
                         </tr> -->
                     </tbody>
                 </table>
             </div>
         </div>
+    </div>  
+
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">Editar Equipamento</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editForm">
+                        <div class="mb-3">
+                            <label for="edit-name" class="col-form-label">Nome:</label>
+                            <input type="text" class="form-control" id="edit-name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="edit-description" class="col-form-label">Descrição:</label>
+                            <input type="text" class="form-control" id="edit-description" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="edit-amount" class="col-form-label">Quantidade:</label>
+                            <input type="text" class="form-control" id="edit-amount" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="edit-status" class="col-form-label">Status:</label>
+                            <select class="form-select" id="edit-status" required>
+                                <option value="disponivel">Disponível</option>
+                                <option value="ocupado">Ocupado</option>
+                                <option value="manutencao">Manutenção</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="submit" form="editForm" class="btn btn-primary">Salvar Alterações</button>
+                </div>
+            </div>
+        </div>
     </div>
+    
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/read.js"></script>
     <script defer src="js/create.js"></script>
     <script src="js/delete.js"></script>
-    <script src="js/read.js"></script>
+    <script defer src="js/update.js"></script>
+    <script defer src="js/theme.js"></script>
 </body>
-
 </html>
