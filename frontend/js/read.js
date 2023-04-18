@@ -21,10 +21,18 @@ document.addEventListener("DOMContentLoaded", async () => {
          nameCell.textContent = equipamento.name;
          row.appendChild(nameCell);
 
+         const descriptionCell = document.createElement("td");
+         descriptionCell.textContent = equipamento.description;
+         row.appendChild(descriptionCell);
+
          const amountCell = document.createElement("td");
          amountCell.textContent = equipamento.amount;
          row.appendChild(amountCell);
          const actionsCell = document.createElement("td");
+
+         const statusCell = document.createElement("td");
+         statusCell.textContent = equipamento.status;
+         row.appendChild(statusCell);
 
          const divButton = document.createElement("div");
          divButton.style.color = "rgb(255,255,255)";

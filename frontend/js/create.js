@@ -25,10 +25,12 @@ salvarBtn.addEventListener("click", async () => {
       <tr>
          <td style="color: rgb(255,255,255);text-align: center;">${responseData.id}</td>
          <td style="color: rgb(255,255,255);text-align: center;">${responseData.name}</td>
+         <td style="color: rgb(255,255,255);text-align: center;">${responseData.description}</td>
          <td style="color: rgb(255,255,255);text-align: center;">${responseData.amount}</td>
+         <td style="color: rgb(255,255,255);text-align: center;">${responseData.status}</td>
          <td style="color: rgb(255,255,255);text-align: center;">
             <div style="color: rgb(255,255,255);">
-               <button id="edit" class="btn btn-secondary btn-sm" type="button" style="margin-right: 0;padding: 4px;">
+               <button id="edit" class="btn btn-secondary btn-sm" type="button" style="margin-right: 0;padding: 4px;" data-id="${responseData.id}">
                   <i class="far fa-edit" style="font-size: 15px;color: rgb(255,255,255);" href="#"></i>
                </button>
                <button id="trash" class="btn btn-danger btn-sm">
